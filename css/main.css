@@ -1,0 +1,328 @@
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+@font-face {
+  font-family: "Wingding";
+  src: url('../Wingding%20Review.ttf') format('truetype');
+}
+/*--------------------------------导航--------------------------*/
+body {
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+body .page-container {
+  width: 100%;
+  height: 100%;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  position: absolute;
+  left: 0;
+  top: 0;
+  /*------------------内容--------------------------*/
+
+}
+body .page-container input,
+body .page-container a {
+  width: 20%;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  bottom: 0;
+  cursor: pointer;
+}
+body .page-container input {
+  opacity: 0;
+  z-index: 1000;
+}
+body .page-container input:hover + a {
+  background-color: #AD2244;
+}
+body .page-container input:checked + a,
+body .page-container input:checked:hover + a {
+  background-color: #821134;
+}
+body .page-container input:checked + a:after {
+  content: "";
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: 20px solid transparent;
+  border-bottom-color: #821134;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -20px;
+}
+body .page-container a {
+  z-index: 10;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: #e23a6e;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 1px 1px 1px rgba(154, 24, 64, 0.2);
+}
+body .page-container #page-control-1,
+body .page-container #page-control-1 + a {
+  left: 0;
+}
+body .page-container #page-control-2,
+body .page-container #page-control-2 + a {
+  left: 20%;
+}
+body .page-container #page-control-3,
+body .page-container #page-control-3 + a {
+  left: 40%;
+}
+body .page-container #page-control-4,
+body .page-container #page-control-4 + a {
+  left: 60%;
+}
+body .page-container #page-control-5,
+body .page-container #page-control-5 + a {
+  left: 80%;
+}
+body .page-container .page-scroll,
+body .page-container .page-panel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+body .page-container .page-scroll {
+  left: 0;
+  top: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+body .page-container .page-scroll .page-panel {
+  background-color: #fff;
+  overflow: hidden;
+}
+body .page-container .page-scroll .page-panel .page-icon {
+  width: 200px;
+  height: 200px;
+  background-color: #fa96b5;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -100px;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+}
+body .page-container .page-scroll .page-panel h2 {
+  color: #e23a6e;
+  font-size: 54px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: 900;
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  margin-top: -70px;
+  text-shadow: 1px 1px 1px rgba(151, 24, 64, 0.2);
+  -webkit-backface-visibility: hidden;
+}
+body .page-container .page-scroll .page-panel p {
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  top: 50%;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  color: #8b8b8b;
+  margin-top: 10px;
+}
+@media screen and (max-width: 520px) {
+  body .page-container .page-scroll .page-panel h2 {
+    font-size: 32px;
+  }
+  body .page-container .page-scroll .page-panel p {
+    width: 90%;
+    left: 10%;
+    margin-top: 0;
+  }
+}
+body .page-container .page-scroll .page-color {
+  background-color: #fa96b5;
+}
+body .page-container .page-scroll .page-color .page-icon {
+  background-color: #ffffff;
+}
+body .page-container .page-scroll .page-color [data-icon]:after {
+  color: #fa96b5;
+}
+body .page-container .page-scroll .page-color h2 {
+  color: #ffffff;
+}
+body .page-container .page-scroll .page-color p {
+  color: #ffffff;
+  opacity: 0.8;
+}
+body .page-container [data-icon]:after {
+  content: attr(data-icon);
+  width: 200px;
+  height: 200px;
+  color: #fff;
+  font-size: 90px;
+  text-align: center;
+  line-height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -100px 0 0 -100px;
+  font-family: "Wingding";
+  -webkit-transform: rotate(-45deg) translateY(25%);
+  -moz-transform: rotate(-45deg) translateY(25%);
+  -o-transform: rotate(-45deg) translateY(25%);
+  -ms-transform: rotate(-45deg) translateY(25%);
+  transform: rotate(-45deg) translateY(25%);
+}
+body .page-container #page-control-1:checked ~ .page-scroll {
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+body .page-container #page-control-1:checked ~ .page-scroll #page-panel-1 h2 {
+  -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  animation: moveDown 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-1:checked ~ .page-scroll #page-panel-1 p {
+  -webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  animation: moveUp 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-2:checked ~ .page-scroll {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+body .page-container #page-control-2:checked ~ .page-scroll #page-panel-2 h2 {
+  -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  animation: moveDown 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-2:checked ~ .page-scroll #page-panel-2 p {
+  -webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  animation: moveUp 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-3:checked ~ .page-scroll {
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  transform: translateY(-200%);
+}
+body .page-container #page-control-3:checked ~ .page-scroll #page-panel-3 h2 {
+  -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  animation: moveDown 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-3:checked ~ .page-scroll #page-panel-3 p {
+  -webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  animation: moveUp 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-4:checked ~ .page-scroll {
+  -webkit-transform: translateY(-300%);
+  -moz-transform: translateY(-300%);
+  -o-transform: translateY(-300%);
+  -ms-transform: translateY(-300%);
+  transform: translateY(-300%);
+}
+body .page-container #page-control-4:checked ~ .page-scroll #page-panel-4 p {
+  -webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  animation: moveUp 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-4:checked ~ .page-scroll #page-panel-4 h2 {
+  -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  animation: moveDown 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-5:checked ~ .page-scroll {
+  -webkit-transform: translateY(-400%);
+  -moz-transform: translateY(-400%);
+  -o-transform: translateY(-400%);
+  -ms-transform: translateY(-400%);
+  transform: translateY(-400%);
+}
+body .page-container #page-control-5:checked ~ .page-scroll #page-panel-5 h2 {
+  -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  animation: moveDown 0.6s ease-in-out 0.2s backwards;
+}
+body .page-container #page-control-5:checked ~ .page-scroll #page-panel-5 p {
+  -webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  animation: moveUp 0.6s ease-in-out 0.2s backwards;
+}
+@-webkit-keyframes moveDown {
+  0% {
+    -webkit-transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes moveUp {
+  0% {
+    -webkit-transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    opacity: 1;
+  }
+}
